@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Gerrit bot comment toggler
 // @namespace    http://nobots.instructure/
-// @version      0.2
+// @version      0.2.1
 // @description  Because why not
 // @author       Jon
 // @match        https://gerrit.instructure.com/
@@ -171,7 +171,7 @@ function toggleBotComments() {
 function updateBotToggle() {
     if (hasHideableComments) {
         botToggle.innerHTML =
-            '<div style="background: #ffc; cursor: pointer; border-style: solid; border-color: #cc8; border-width: 1px 1px 0 0; padding: 5px 10px; font-weight: bold;">' + 
+            '<div style="background: #fff; cursor: pointer; border-style: solid; border-color: #ccc; border-width: 0px 1px 1px 1px; padding: 5px 10px; font-weight: heavy; position: relative; left: -50%;">' + 
                 '<img src="//en.gravatar.com/userimage/21117697/619762dee47a8b1eed21c1ce9a5481d5.jpeg" width="20" height="20" style="vertical-align: middle"> ' +
                 (botCommentsEnabled ? "Hide Bot Comments" : "Show Bot Comments") +
             '</div>'
@@ -180,7 +180,7 @@ function updateBotToggle() {
 
 botToggle.style.position = "fixed";
 botToggle.style.zIndex = "1000";
-botToggle.style.bottom = "0";
-botToggle.style.left = "0";
+botToggle.style.top = "0";
+botToggle.style.left = "50%";
 botToggle.addEventListener('click', toggleBotComments);
 document.body.appendChild(botToggle);
